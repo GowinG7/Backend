@@ -1,6 +1,8 @@
-const figlet = require("figlet");
+// const figlet = require("figlet");
 
-figlet("Gobinda!", function (err, data) {
+import figlet from "figlet";
+
+figlet("GG!", function (err, data) {
   if (err) {
     console.log("Something went wrong...");
     console.dir(err);
