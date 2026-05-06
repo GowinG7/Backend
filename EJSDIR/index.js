@@ -11,10 +11,20 @@ app.get("/", (req, res) => {
   res.render("home.ejs");
 });
 
+// app.get("/ig/:username", (req, res) => {
+//   const followers = ["GG", "BG", "SG", "DRG", "SG"];
+//   let { username } = req.params;
+//   res.render("instagram.ejs", { username, followers });
+// });
+
 app.get("/ig/:username", (req, res) => {
-  const followers = ["GG", "BG", "SG", "DRG", "SG"];
   let { username } = req.params;
-  res.render("instagram.ejs", { username, followers });
+  const instaData = require("./data.json");
+  const data = instaData[username];
+  if(data)
+  res.render("instagram.ejs", { data });
+else
+  res.render("instaerror.ejs");
 });
 
 app.get("/rolldice", (req, res) => {
